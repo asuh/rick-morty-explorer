@@ -5,3 +5,11 @@
   text-align: center;
 }
 
+.characterDetails {
+  max-width: 600px;
+  margin: 2rem auto;
+  background: #fff;
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 2px 8px #0001;
+}
