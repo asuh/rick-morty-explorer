@@ -1,6 +1,6 @@
 import type React from "react";
 
-const CharactersDetails: React.FC = () => {
+const CharactersDetailsPage: React.FC = () => {
   return (
     <div>
       <h1>Character Details</h1>
@@ -8,4 +8,4 @@ const CharactersDetails: React.FC = () => {
   );
 };
 
-export default CharactersDetails;
+export default CharactersDetailsPage;
