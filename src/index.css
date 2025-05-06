@@ -3,66 +3,73 @@
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
+  background: var(--page-bg, #fff);
+  
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  color-scheme: light dark;
+  --page-bg: linear-gradient(135deg, #407ea3 0%, #183a5e 100%);
+  --card-radius: 2rem;
+  --heading-color: #ff5faf;
+  --card-blur: 1.125rem;
+  --card-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  --card-hover-shadow: 0 16px 48px 0 rgba(0, 255, 208, 0.25);
+  --card-bg: rgba(40, 44, 52, 0.7);
+  --card-border: #00ffd0;
+  --card-border-hover: #fff;
+  --link: #00ffd0;
+  --card-img-shadow: 0 4px 24px 0 rgba(0, 255, 208, 0.25);  
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
   min-height: 100vh;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+nav {
+  padding: 1rem;
+  background: #e2e2e2;
+  display: flex;
+  justify-content: center;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
+h1 {
+  color: var(--heading-color);
+  font-size: 3.2em;
 }
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+
+a {
+  color: var(--link);
+  text-decoration: none;
+
+  &:hover {
+    color: color-mix(in oklab, var(--link) 90%, hotpink 10%);
+    text-decoration: underline;
+  }
 }
 
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
+    background-color: #fff;
+    --page-bg: linear-gradient(135deg, #bbced9 0%, #7d9cbc 100%);
+    --link: #125687;
+    --heading-color: #166a62;
+    --card-hover-shadow: 0 16px 48px 0 rgba(73, 80, 215, 0.75);
+    --card-bg: rgba(255, 255, 255, 0.7);
+    --card-border: #00bfae;
+    --card-border-hover: #232526;
+    --card-name: #00bfae;
+    --card-img-shadow: 0 4px 24px 0 rgba(0, 191, 174, 0.15);    
   }
 }

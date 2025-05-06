@@ -1,6 +1,7 @@
 import type React from "react";
 import { useParams, Link } from "react-router-dom";
 import { useCharacter } from "../api/useCharacter";
+import "./CharactersDetailsPage.css";
 
 const CharacterDetailPage: React.FC = () => {
   const { id } = useParams();
@@ -15,30 +16,35 @@ const CharacterDetailPage: React.FC = () => {
 
   return (
     <section className="character-detail">
-      <Link to="/">&larr; Back to list</Link>
+      <Link className="character-detail-back" to="/">&larr; Back to list</Link>
       <h1>{data.name}</h1>
       <img
         src={data.image}
         alt={data.name}
         width={200}
         height={200}
-        style={{ borderRadius: "1rem", margin: "1rem 0" }}
+        className="character-detail-image"
       />
-      <ul>
-        <li>
-          <strong>Status:</strong> {data.status}
+      <ul className="character-detail-list">
+        <li className="character-detail-item">
+          <strong>Status:</strong>
+          <span>{data.status}</span>
         </li>
-        <li>
-          <strong>Species:</strong> {data.species}
+        <li className="character-detail-item">
+          <strong>Species:</strong>
+          <span>{data.species}</span>
         </li>
-        <li>
-          <strong>Gender:</strong> {data.gender}
+        <li className="character-detail-item">
+          <strong>Gender:</strong>
+          <span>{data.gender}</span>
         </li>
-        <li>
-          <strong>Origin:</strong> {data.origin.name}
+        <li className="character-detail-item">
+          <strong>Origin:</strong>
+          <span>{data.origin.name}</span>
         </li>
-        <li>
-          <strong>Location:</strong> {data.location.name}
+        <li className="character-detail-item">
+          <strong>Location:</strong>
+          <span>{data.location.name}</span>
         </li>
       </ul>
     </section>

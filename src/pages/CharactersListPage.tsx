@@ -1,6 +1,7 @@
 import type React from "react";
 import { useCharacters } from "../api/useCharacters";
 import CharacterList from "../components/CharacterList/CharacterList";
+import RickAndMortyLogo from "../components/RickAndMortyLogo/RickAndMortyLogo";
 
 const CharacterListPage: React.FC = () => {
   const { data, loading, error } = useCharacters();

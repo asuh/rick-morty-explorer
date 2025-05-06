@@ -1,0 +1,46 @@
+.character-detail {
+  max-width: 400px;
+  margin: 2rem auto;
+  background: var(--card-bg, #fff);
+  border-radius: var(--radius, 1rem);
+  box-shadow: var(--shadow, 0 2px 8px #0001);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.character-detail-image {
+  border-radius: 1rem;
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 8px #0002;
+}
+
+.character-detail-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0 0;
+  width: 100%;
+}
+
+.character-detail-item {
+  margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  font-size: 1rem;
+}
+
+.character-detail-back {
+  align-self: flex-start;
+  margin-bottom: 1rem;
+  color: var(--accent, #0077cc);
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.character-detail-back:hover {
+  text-decoration: underline;
+}

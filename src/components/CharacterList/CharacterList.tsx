@@ -11,7 +11,7 @@ const CharacterList: React.FC<Props> = ({ characters }) => (
   <ul className="character-list">
     {characters.map((char) => (
       <li key={char.id} className="character-list-item">
-        <Link to={`/character/${char.id}`}>
+        <Link to={`/character/${char.id}`} className="character-list-link">
           <img
             src={char.image}
             alt={char.name}
@@ -19,7 +19,7 @@ const CharacterList: React.FC<Props> = ({ characters }) => (
             width={80}
             height={80}
           />
-          <div>{char.name}</div>
+          <span className="character-list-name">{char.name}</span>
         </Link>
       </li>
     ))}

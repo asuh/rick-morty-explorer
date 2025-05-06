@@ -1,37 +1,46 @@
 .character-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 2.5rem;
   list-style: none;
   padding: 0;
-
-  > * {
-    place-content: center;
-  }
 }
 
 .character-list-item {
-  border: 1px solid hsl(10% 50% / 15%);
-  border-radius: 0.7rem;
-  box-shadow: 0 1rem .5rem -.5rem;
-  box-shadow:
-    0 2.8px 2.2px hsl(210 10% 23% / calc(2% + 3%)),
-    0 6.7px 5.3px hsl(210 10% 23% / calc(2% + 1%)),
-    0 12.5px 10px hsl(210 10% 23% / calc(2% + 2%)),
-    0 22.3px 17.9px hsl(210 10% 23% / calc(2% + 2%)),
-    0 41.8px 33.4px hsl(210 10% 23% / calc(2% + 3%)),
-    0 100px 80px hsl(210 10% 23% / 2%)
-  ;
-  padding: 0.5rem;
-  width: 7.5rem;
-  transition: box-shadow 0.2s;
+  border-radius: var(--card-radius);
+  box-shadow: var(--card-shadow);
+  background: var(--card-bg);
+  transition: transform 0.3s cubic-bezier(.25, 0.8, 0.25, 1), box-shadow 0.3s;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  place-items: center;
 }
 
 .character-list-item:hover {
-  box-shadow: 0 0.25rem 1rem #0002;
+  transform: translateY(-10px) scale(1.03) rotate(-1deg);
+  box-shadow: var(--card-hover-shadow);
 }
 
 .character-list-image {
+  border: 4px solid var(--card-border);
   border-radius: 50%;
-  margin-bottom: 0.5rem;
+  box-shadow: var(--card-img-shadow);
+  height: 8.5rem;
+  margin-top: 2rem;
+  place-self: center;
+  transition: border-color 0.3s;
+  width: 8.5rem;
+  z-index: 1;
+}
+
+.character-list-item:hover .character-list-image {
+  border-color: var(--card-border-hover);
+}
+
+.character-list-name {
+  display: block;
+  font-size: 1.2rem;
+  margin: 1rem auto;
+  max-width: 15ch;
 }
