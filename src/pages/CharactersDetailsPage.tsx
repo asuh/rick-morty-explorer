@@ -15,7 +15,7 @@ const CharacterDetailPage: React.FC = () => {
   if (!data) return <p>Character not found.</p>;
 
   return (
-    <section className="character-detail-card">
+    <section className="character-detail-card" id="main">
       <Link className="character-detail-back" to="/">
         &larr; Back to list
       </Link>

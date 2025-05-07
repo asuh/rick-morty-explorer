@@ -10,7 +10,7 @@ const CharacterListPage: React.FC = () => {
   if (!data || data.length === 0) return <p>No characters found.</p>;
 
   return (
-    <section>
+    <section id="main">
       <h1>Character List</h1>
       <CharacterList characters={data} />
     </section>
