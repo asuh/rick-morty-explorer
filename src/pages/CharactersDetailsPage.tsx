@@ -15,38 +15,40 @@ const CharacterDetailPage: React.FC = () => {
   if (!data) return <p>Character not found.</p>;
 
   return (
-    <section className="character-detail">
-      <Link className="character-detail-back" to="/">&larr; Back to list</Link>
-      <h1>{data.name}</h1>
+    <section className="character-detail-card">
+      <Link className="character-detail-back" to="/">
+        &larr; Back to list
+      </Link>
       <img
         src={data.image}
         alt={data.name}
-        width={200}
-        height={200}
         className="character-detail-image"
       />
-      <ul className="character-detail-list">
-        <li className="character-detail-item">
-          <strong>Status:</strong>
-          <span>{data.status}</span>
-        </li>
-        <li className="character-detail-item">
-          <strong>Species:</strong>
-          <span>{data.species}</span>
-        </li>
-        <li className="character-detail-item">
-          <strong>Gender:</strong>
-          <span>{data.gender}</span>
-        </li>
-        <li className="character-detail-item">
-          <strong>Origin:</strong>
-          <span>{data.origin.name}</span>
-        </li>
-        <li className="character-detail-item">
-          <strong>Location:</strong>
-          <span>{data.location.name}</span>
-        </li>
-      </ul>
+      <div className="character-detail-content">
+        <h1 className="character-detail-name">{data.name}</h1>
+        <ul className="character-detail-list">
+          <li className="character-detail-item">
+            <strong>Status:</strong>
+            <span>{data.status}</span>
+          </li>
+          <li className="character-detail-item">
+            <strong>Species:</strong>
+            <span>{data.species}</span>
+          </li>
+          <li className="character-detail-item">
+            <strong>Gender:</strong>
+            <span>{data.gender}</span>
+          </li>
+          <li className="character-detail-item">
+            <strong>Origin:</strong>
+            <span>{data.origin.name}</span>
+          </li>
+          <li className="character-detail-item">
+            <strong>Location:</strong>
+            <span>{data.location.name}</span>
+          </li>
+        </ul>
+      </div>
     </section>
   );
 };

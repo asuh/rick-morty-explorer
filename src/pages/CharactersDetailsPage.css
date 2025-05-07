@@ -1,46 +1,147 @@
-.character-detail {
-  max-width: 400px;
-  margin: 2rem auto;
-  background: var(--card-bg, #fff);
-  border-radius: var(--radius, 1rem);
-  box-shadow: var(--shadow, 0 2px 8px #0001);
-  padding: 2rem;
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Orbitron:wght@700&display=swap');
+
+.character-detail-card {
+  --detail-accent: #e84a27;
+  --detail-bg: rgba(40, 44, 52, 0.7);
+  --detail-border: #00ffd0;
+  --detail-foil: linear-gradient(90deg, #f7e017 0%, #e84a27 100%);
+  --detail-radius: 2rem;
+  --detail-shadow: 0 0.5rem 2rem 0 rgba(31, 38, 135, 0.37);
+
+  aspect-ratio: 2.5 / 3.5;
+  background: var(--detail-bg);
+  border: 0.375rem solid var(--detail-border);
+  border-radius: var(--detail-radius);
+  box-shadow:
+    0 0 0 0.5rem #fff8,
+    0 0 0 0.875rem var(--detail-border),
+    var(--detail-shadow);
   display: flex;
   flex-direction: column;
-  align-items: center;
-}
-
-.character-detail-image {
-  border-radius: 1rem;
-  width: 180px;
-  height: 180px;
-  object-fit: cover;
-  margin-bottom: 1rem;
-  box-shadow: 0 2px 8px #0002;
-}
-
-.character-detail-list {
-  list-style: none;
-  padding: 0;
-  margin: 1rem 0 0 0;
-  width: 100%;
-}
-
-.character-detail-item {
-  margin-bottom: 0.5rem;
-  display: flex;
-  justify-content: space-between;
-  font-size: 1rem;
+  font-family: 'Archivo Black', 'Orbitron', Arial, sans-serif;
+  justify-content: flex-start;
+  margin: 2.5rem auto;
+  max-width: 23.75rem;
+  position: relative;
+  padding: 2rem 1.5rem 1.2rem 1.5rem;
 }
 
 .character-detail-back {
   align-self: flex-start;
-  margin-bottom: 1rem;
-  color: var(--accent, #0077cc);
-  text-decoration: none;
+  color: var(--detail-accent);
+  font-family: 'Archivo Black', Arial, sans-serif;
   font-size: 0.95rem;
+  letter-spacing: 0.03em;
+  margin-bottom: 0.5rem;
+  text-decoration: none;
+  text-shadow: 0 0.0625rem 0 #fff8;
 }
 
 .character-detail-back:hover {
   text-decoration: underline;
+}
+
+.character-detail-image {
+  background: #fff;
+  border: 0.3rem solid var(--detail-border);
+  border-radius: 1.2rem;
+  box-shadow:
+    0 0.25rem 1.5rem 0 rgba(0, 255, 208, 0.25),
+    0 0 0 0.25rem #fff8;
+  display: block;
+  height: 11rem;
+  margin: 0 auto 1.2rem auto;
+  object-fit: cover;
+  width: 11rem;
+  /* 80s sticker tilt */
+  transform: rotate(-3deg);
+  transition: transform 0.2s;
+}
+
+.character-detail-image:hover {
+  transform: rotate(2deg) scale(1.04);
+}
+
+.character-detail-content {
+  align-items: center;
+  background: none;
+  border-radius: 0 0 var(--detail-radius) var(--detail-radius);
+  display: flex;
+  flex-direction: column;
+  margin-top: 0;
+  padding: 0;
+  position: relative;
+  width: 100%;
+  z-index: 2;
+}
+
+.character-detail-name {
+  background: var(--detail-foil);
+  color: var(--detail-accent);
+  font-family: 'Orbitron', 'Archivo Black', Arial, sans-serif;
+  font-size: 2rem;
+  letter-spacing: 0.04em;
+  margin: 0.5rem 0 1.2rem 0;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0.125rem 0.125rem 0 #fff8, 0 0.125rem 0.5rem #e84a2733;
+  text-align: center;
+}
+
+.character-detail-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.character-detail-item {
+  color: #e6e6e6;
+  display: flex;
+  font-family: 'Archivo Black', Arial, sans-serif;
+  font-size: 1.08rem;
+  justify-content: space-between;
+  letter-spacing: 0.01em;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 0.0625rem 0 #0008;
+}
+
+.character-detail-item strong {
+  color: var(--detail-accent);
+  font-weight: bold;
+  margin-right: 0.5em;
+}
+
+.character-detail-item span {
+  text-align: right;
+}
+
+.character-detail-foil-badge {
+  background: var(--detail-foil);
+  border: 0.125rem solid #fff8;
+  border-radius: 1em;
+  box-shadow: 0 0.125rem 0.5rem #0003;
+  color: #fff;
+  font-family: 'Orbitron', Arial, sans-serif;
+  font-size: 1.1rem;
+  letter-spacing: 0.1em;
+  padding: 0.3em 1em;
+  position: absolute;
+  right: 1.2rem;
+  top: -1.2rem;
+}
+
+@media (prefers-color-scheme: light) {
+  .character-detail-card {
+    --detail-accent: #166a62;
+    --detail-bg: rgba(255, 255, 255, 0.7);
+    --detail-border: #00bfae;
+    --detail-foil: linear-gradient(90deg, #e84a27 0%, #f7e017 100%);
+    --detail-shadow: 0 0.5rem 2rem 0 rgba(73, 80, 215, 0.15);
+  }
+
+  .character-detail-item {
+    color: #213547;
+    text-shadow: 0 0.0625rem 0 #fff8;
+  }
 }
