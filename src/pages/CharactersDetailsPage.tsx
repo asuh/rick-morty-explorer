@@ -1,14 +1,15 @@
 import type React from "react";
 import { useParams, Link } from "react-router-dom";
-import { useCharacter } from "../api/useCharacter";
+import { useCharacterById } from "../hooks/useCharacterById";
+import { useReturnPage } from "../hooks/useReturnPage";
 import "./CharactersDetailsPage.css";
 
 const CharacterDetailPage: React.FC = () => {
   const { id } = useParams();
+  const { returnUrl } = useReturnPage("1");
+  const { data, loading, error } = useCharacterById(id || "");
 
   if (!id) return <p>Character not found.</p>;
-
-  const { data, loading, error } = useCharacter(id);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
@@ -16,7 +17,7 @@ const CharacterDetailPage: React.FC = () => {
 
   return (
     <section className="character-detail-card" id="main">
-      <Link className="character-detail-back" to="/">
+      <Link className="character-detail-back" to={returnUrl}>
         &larr; Back to list
       </Link>
       <img

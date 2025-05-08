@@ -31,7 +31,7 @@ describe("CharacterList", () => {
   it("renders character names and images", () => {
     render(
       <BrowserRouter>
-        <CharacterList characters={characters} />
+        <CharacterList characters={characters} currentPage={1} />
       </BrowserRouter>
     );
     expect(screen.getByText("Rick Sanchez")).toBeInTheDocument();

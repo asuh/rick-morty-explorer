@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import { fetchCharacterById } from "./rickAndMortyApi";
-import type { Character } from "./types";
+import { fetchCharacterById } from "../api/rickAndMortyApi";
+import type { Character } from "../api/types";
 
-export function useCharacter(id: string | number) {
+export function useCharacterById(id: string | number) {
   const [data, setData] = useState<Character | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);

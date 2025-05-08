@@ -4,8 +4,8 @@ import { MemoryRouter, Route, Routes } from "react-router-dom";
 import "@testing-library/jest-dom";
 
 // Mock the module before importing the component
-vi.mock("../api/useCharacter", () => ({
-  useCharacter: () => ({
+vi.mock("../hooks/useCharacterById", () => ({
+  useCharacterById: () => ({
     data: {
       id: 1,
       name: "Rick Sanchez",
@@ -33,7 +33,7 @@ describe("CharactersDetailsPage", () => {
       </MemoryRouter>
     );
 
-    expect(screen.getByText("Rick Sanchez")).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /rick sanchez/i })).toBeInTheDocument();
     expect(screen.getByText("Status:")).toBeInTheDocument();
     expect(screen.getByText("Alive")).toBeInTheDocument();
     expect(screen.getByAltText("Rick Sanchez")).toBeInTheDocument();
